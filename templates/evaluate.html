@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Essay Evaluation - IELTS/TOEFL</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #f0f4f8;
+            --text-color: #333;
+            --background-color: #fff;
+            --error-color: #e74c3c;
+            --success-color: #2ecc71;
+            --accent-color: #ffa500;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--background-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 25px;
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        select, input[type="number"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        select:focus, input[type="number"]:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #3a7bc8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        #feedback {
+            margin-top: 30px;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .error {
+            color: var(--error-color);
+            font-weight: bold;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 5px;
+        }
+
+        .success {
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .feedback-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .feedback-title {
+            font-size: 1.8em;
+            color: var(--primary-color);
+        }
+
+        .feedback-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .feedback-button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .print-button {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .save-button {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .aspect-button {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .aspect-button.active {
+            background-color: var(--accent-color);
+        }
+
+        .feedback-section {
+            background-color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .feedback-aspect {
+            font-size: 1.2em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            form {
+                padding: 20px;
+            }
+
+            .feedback-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .feedback-buttons {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Essay Evaluation</h1>
+        <form id="evaluationForm">
+            <div>
+                <label for="examType">Exam Type:</label>
+                <select id="examType" name="exam" required>
+                    <option value="">Select Exam Type</option>
+                    <option value="IELTS">IELTS</option>
+                    <option value="TOEFL">TOEFL</option>
+                </select>
+            </div>
+            <div>
+                <label for="taskNumber">Task Number:</label>
+                <input type="number" id="taskNumber" name="task" min="1" max="2" required>
+            </div>
+            <div>
+                <label for="readingPrompt">Reading Prompt:</label>
+                <textarea id="readingPrompt" name="reading_prompt" required placeholder="Enter the reading prompt here..."></textarea>
+            </div>
+            <div>
+                <label for="essay">Your Essay:</label>
+                <textarea id="essay" name="essay" required placeholder="Write your essay here..."></textarea>
+            </div>
+            <button type="submit">Evaluate My Essay</button>
+        </form>
+        <div id="feedback"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('evaluationForm');
+        const feedbackDiv = document.getElementById('feedback');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            feedbackDiv.innerHTML = '<p class="success">Evaluating your essay... Please wait.</p>';
+
+            try {
+                const response = await fetch(`http://127.0.0.1:3000/evaluate${data.exam}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                displayFeedback(result);
+            } catch (error) {
+                console.error('Error:', error);
+                feedbackDiv.innerHTML = `<p class="error">Sorry, there was an error processing your request. Please try again.</p>`;
+            }
+        });
+        function formatText(text) {
+            // Remove special characters and extra spaces
+            text = text.replace(/[^\w\s.,!?-]/g, '');
+            // Capitalize the first letter of each sentence
+            text = text.replace(/(^\w|\.\s+\w)/g, letter => letter.toUpperCase());
+            // Add line breaks for readability
+            text = text.replace(/\./g, '.<br>');
+            return text;
+        }
+            function displayFeedback(result) {
+            const aspects = Object.keys(result.feedback);
+            let feedbackHtml = `
+                <div class="feedback-header">
+                    <h2 class="feedback-title">${result.exam} Task ${result.task} Feedback</h2>
+                    <div class="feedback-buttons">
+                        <button class="feedback-button print-button" onclick="window.print()">Print</button>
+                        <button class="feedback-button save-button" onclick="saveFeedback()">Save</button>
+                    </div>
+                </div>
+                <div class="feedback-buttons">
+                    <button class="feedback-button aspect-button active" onclick="showAllAspects()">All</button>
+                    ${aspects.map(aspect => `<button class="feedback-button aspect-button" onclick="showAspect('${aspect}')">${aspect.toUpperCase()}</button>`).join('')}
+                </div>
+            `;
+
+            for (const [aspect, feedback] of Object.entries(result.feedback)) {
+                feedbackHtml += `
+                    <div class="feedback-section" data-aspect="${aspect}">
+                        <h3 class="feedback-aspect">${aspect.charAt(0).toUpperCase() + aspect.slice(1)}</h3>
+                        <p>${formatText(feedback)}</p>
+                    </div>
+                `;
+            }
+
+            feedbackDiv.innerHTML = feedbackHtml;
+        }
+
+
+
+        function showAllAspects() {
+            const sections = document.querySelectorAll('.feedback-section');
+            sections.forEach(section => section.style.display = 'block');
+            setActiveButton('All');
+        }
+
+        function showAspect(aspect) {
+            const sections = document.querySelectorAll('.feedback-section');
+            sections.forEach(section => {
+                if (section.dataset.aspect === aspect) {
+                    section.style.display = 'block';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            setActiveButton(aspect);
+        }
+
+        function setActiveButton(aspect) {
+            const buttons = document.querySelectorAll('.aspect-button');
+            buttons.forEach(button => {
+                if (button.textContent.toLowerCase() === aspect.toLowerCase()) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+
+        function saveFeedback() {
+            const feedbackContent = document.getElementById('feedback').innerText;
+            const blob = new Blob([feedbackContent], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'essay_feedback.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>
+

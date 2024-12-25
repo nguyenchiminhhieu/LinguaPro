@@ -80,6 +80,128 @@ a.disabled {
 	opacity: 1;
 	right: 0;
 }
+.modern-body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+.modern-nav {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 2rem;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-icon {
+    cursor: pointer;
+    color: #4a5568;
+    transition: color 0.3s ease;
+}
+
+.app-title {
+    font-size: 1.5rem;
+    color: #2d3748;
+    margin: 0;
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.control-panel {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.control-btn {
+    background-color: #4299e1;
+    border: none;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.control-btn:hover {
+    background-color: #3182ce;
+}
+
+.text-display {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.record-button {
+    background-color: #e53e3e;
+    border: none;
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.record-button:hover {
+    background-color: #c53030;
+}
+
+.difficulty-options {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.modern-footer {
+    background-color: #2d3748;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: white;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover svg {
+    opacity: 0.8;
+}
 
 
 

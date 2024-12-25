@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Pronunciation Trainer - Speak with Confidence</title>
+    <style>
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        @keyframes float {
+            0% {transform: translateY(0px);}
+            50% {transform: translateY(-10px);}
+            100% {transform: translateY(0px);}
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 50px 0;
+            color: white;
+        }
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        .tagline {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .benefits {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+        .benefits h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .benefits ul {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-left: 30px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+        }
+        footer a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>LinguaPro</h1>
+            <p class="tagline">Enhance your language skills, expand your world</p>
+        </header>
+
+        <main>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h2>Pronunciation Trainer</h2>
+                    <p>Helps users improve their English and German pronunciation with real-time feedback and personalized exercises</p>
+                    <a href="/main" class="cta-button">Start Training</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h2>Chatbot Assistant</h2>
+                    <p>Provides support in learning English and developing essential skills for language certification exams through interactive conversations and personalized guidance</p>
+                    <a href="/chatbot" class="cta-button">Chat Now</a>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h2>Writing Evaluation</h2>
+                    <p>Evaluates writing skills based on the requirements of international language certification exams</p>
+                    <a href="/evaluate" class="cta-button">Evaluate Now</a>
+                </div>
+            </div>
+
+            <section class="benefits">
+                <h2>Why Choose <span style="color: #23a6d5;">LinguaPro</span>?</h2>
+                <div class="benefits-wrapper">
+                    <div class="benefit-item">
+                        <h3>🎯 Advanced AI Technology</h3>
+                        <p>Accurate, real-time feedback to improve your pronunciation faster.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>🌍 Multilingual Support</h3>
+                        <p>Practice in multiple languages with native-speaker quality.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>📈 Personalized Learning</h3>
+                        <p>Tailored learning experience that fits your progress.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>📊 Detailed Progress Tracking</h3>
+                        <p>Track your improvement with comprehensive analytics.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>💬 Real-World Scenarios</h3>
+                        <p>Prepare for real-life conversations with our chatbot.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <h3>🌟 Expert Recommendations</h3>
+                        <p>Get actionable tips based on advanced speech science.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <style>
+                .benefits {
+                    background: rgba(255, 255, 255, 0.85);
+                    padding: 30px 20px;
+                    margin-top: 40px;
+                    border-radius: 12px;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                }
+            
+                .benefits h2 {
+                    text-align: center;
+                    font-size: 2em;
+                    margin-bottom: 20px;
+                    font-weight: bold;
+                    color: #333;
+                }
+            
+                .benefits-wrapper {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                    gap: 20px;
+                }
+            
+                .benefit-item {
+                    background: #23a6d5;
+                    color: white;
+                    padding: 15px;
+                    border-radius: 12px;
+                    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                }
+            
+                .benefit-item:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                }
+            
+                .benefit-item h3 {
+                    font-size: 1.3em;
+                    margin-bottom: 10px;
+                }
+            
+                .benefit-item p {
+                    font-size: 1em;
+                    line-height: 1.5;
+                }
+            </style>
+            
+            
+            
+        </main>
+
+        <footer>
+            <p>Created with passion by NC MINH HIEU</p>
+            <p>
+                <a href="https://github.com/nguyenchiminhhieu" target="_blank" rel="noopener noreferrer">GitHub</a> |
+                <a href="https://www.linkedin.com/in/nc-minh-hi%E1%BA%BFu-b213a6312?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BatEfuSbVSwCG23atnZMjRg%3D%3D" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
